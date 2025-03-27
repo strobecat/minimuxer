@@ -3,10 +3,19 @@ name = "minimuxer"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+name = "minimuxer"
+crate-type = ["staticlib", "rlib"]
+path = "src/lib.rs"
+
+[[bin]]
+name = "test"
+path = "src/test.rs"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-rusty_libimobiledevice = { version = "0.1.6", features = ["dynamic"], default-features = false }
+rusty_libimobiledevice = { version = "0.2.*", features = ["dynamic"], default-features = false }
 plist_plus = { version = "0.2.*", features = ["dynamic"] }
 
 libc = { version = "0.2.132" }
@@ -14,12 +23,13 @@ simplelog = { version = "*" }
 log = { version = "*" }
 
 reqwest = { version = "0.11.12", features = ["blocking"] }
-serde = { version = "1.0.147" }
+serde = { version = "1.0.147", features = ["derive"] }
 serde_json = { version = "1.0.87" }
 zip = { version = "0.6.3" }
+smoltcp = { version = "0.12.0", features = ["std", "log", "socket-tcp", "proto-ipv4", "medium-ip", "proto-ipv6"], default-features = false }
+rand = "0.8.5"
+h2 = { version = "0.4.7", features = ["unstable"] }
+bytes = "1.10.0"
 
 [build-dependencies]
 cbindgen = "0.20.0"
-
-[lib]
-crate-type = ["staticlib", "rlib"]

@@ -1,5 +1,5 @@
 // Jackson Coxson
-
+//#![feature(test)]
 use std::{
     net::{Ipv4Addr, SocketAddr, SocketAddrV4},
     time::Duration,
@@ -18,6 +18,7 @@ pub mod mounter;
 pub mod muxer;
 pub mod provision;
 mod raw_packet;
+pub mod rsd;
 
 /// Waits for the muxer to return the device
 /// This ensures that the muxer is running
@@ -55,9 +56,8 @@ pub fn test_device_connection() -> bool {
 
 #[cfg(test)]
 mod tests {
-    use crate::{heartbeat::start_beat, muxer::listen};
-    use plist_plus::Plist;
 
+    /*
     #[test]
     fn run() {
         let p_file = Plist::from_xml(
@@ -79,5 +79,5 @@ mod tests {
         loop {
             std::thread::sleep(std::time::Duration::from_secs(10));
         }
-    }
+    }*/
 }
