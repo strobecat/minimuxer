@@ -1,0 +1,1 @@
+According to JitStreamer-EB discord, it sounds like SideStore developers have almost done implementing on-device JIT, so this became meaningless and I'm posting it here for POC and not touching it anymore. Current able to fetch & parse RSD handshake response from iPad
